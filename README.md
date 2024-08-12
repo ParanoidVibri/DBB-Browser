@@ -1,7 +1,9 @@
 
-# BB Browser
+# DBB Browser
 
-An enhanced web browser application built using PyQt5 and PyQtWebEngine. This browser supports multiple tabs, bookmarks, and has a progress bar to indicate page loading status.
+Dandified BB Browser is a fork of the BB Browser with more features.
+
+**THIS IS A FORK OF THE BB BROWSER MADE BY BORGORNINJA**
 
 ## Features
 
@@ -11,6 +13,10 @@ An enhanced web browser application built using PyQt5 and PyQtWebEngine. This br
 - **Navigation Controls**: Back, forward, reload, and open new tabs.
 - **Search Functionality**: Navigate to URLs directly from the address bar or search button.
 
+- **Quick Bar**: Open your favourite websites at your fingertips.
+- **Picture in Picture**: Makes a floating window of your video to watch meanwhile using other websites or programs.
+- **Pretty UI**
+
 ## Installation
 
 To get started with this project, you'll need to have Python 3.x installed on your system. Follow these steps to set up your environment:
@@ -18,7 +24,7 @@ To get started with this project, you'll need to have Python 3.x installed on yo
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/BorgorNinja/Borgor-Browser.git
+   git clone 
    cd Borgor-Browser
    ```
 
