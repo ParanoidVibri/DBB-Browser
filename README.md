@@ -24,8 +24,8 @@ To get started with this project, you'll need to have Python 3.x installed on yo
 1. **Clone the Repository**
 
    ```bash
-   git clone 
-   cd Borgor-Browser
+   git clone https://github.com/ParanoidVibri/DBB-Browser.git
+   cd DBB-Browser
    ```
 
 2. **Set Up a Virtual Environment** (recommended)
