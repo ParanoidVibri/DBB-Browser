@@ -14,7 +14,7 @@ Dandified BB Browser is a fork of the BB Browser with more features.
 - **Search Functionality**: Navigate to URLs directly from the address bar or search button.
 
 - **Quick Bar**: Open your favourite websites at your fingertips.
-- **Picture in Picture**: Makes a floating window of your video to watch meanwhile using other websites or programs.
+- **Picture in Picture**: Makes a floating window of your video to watch meanwhile using other websites or programs. (WIP)
 - **Pretty UI**
 
 ## Installation
