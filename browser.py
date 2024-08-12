@@ -116,6 +116,16 @@ class Browser(QMainWindow):
         index = self.tabs.addTab(tab, "New Tab")
         self.tabs.setCurrentIndex(index)
         self.update_address_bar()
+        import sys
+        app = QApplication(sys.argv)
+        tab_widget = QTabWidget()
+        tab1 = QWidget()
+        tab2 = QWidget()
+
+        tab_widget.addTab(tab1, "Tab 1")
+        tab_widget.addTab(tab2, "Tab 2")
+        tab_widget.setStyleSheet("QTabBar::tab { border-radius: 10px; }")
+        tab_widget.show()
 
     def update_address_bar(self):
         current_browser = self.current_browser()
@@ -215,6 +225,100 @@ class Browser(QMainWindow):
             self.progress_bar.setValue(0)
         # Hide progress bar after loading is finished
         self.progress_bar.hide()
+
+# Quick Bar
+class ToolbarExample(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.initUI()
+
+    def initUI(self):
+        self.setWindowTitle('Website Toolbar')
+
+        widget = QWidget()
+        layout = QVBoxLayout()
+        
+        google_button = QPushButton('Google')
+        facebook_button = QPushButton('Facebook')
+        discord_button = QPushButton('Discord')
+        add_button = QPushButton('Add')
+        
+        google_button.clicked.connect(self.www.google.com)
+        facebook_button.clicked.connect(self.www.facebook.com)
+        discord_button.clicked.connect(self.www.discord.com/app)
+        add_button.clicked.connect(self.add_website)
+
+        layout.addWidget(google_button)
+        layout.addWidget(facebook_button)
+        layout.addWidget(discord_button)
+        layout.addWidget(add_button)
+
+        widget.setLayout(layout)
+        self.setCentralWidget(widget)
+
+    def open_google(self):
+        pass
+
+    def open_facebook(self):
+        pass
+
+    def open_discord(self):
+        pass
+
+    def add_website(self):
+        pass
+
+# Picture In Picture mode
+class VideoPlayerExample(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle('Video Player')
+
+        main_layout = QVBoxLayout()
+
+        self.main_label = QLabel('Main Video Player')
+        main_layout.addWidget(self.main_label)
+
+        self.active_video_playing = False
+
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.check_video_playing)
+        self.timer.start(1000)  # Check every 1 second
+
+        main_widget = QWidget()
+        main_widget.setLayout(main_layout)
+        self.setCentralWidget(main_widget)
+
+    def check_video_playing(self):
+        self.active_video_playing = not self.active_video_playing
+
+        if self.active_video_playing:
+            self.show_picture_in_picture()
+
+    def show_picture_in_picture(self):
+        self.pip_dialog = QDialog(self)
+        self.pip_dialog.setWindowTitle('Picture-in-Picture View')
+        self.pip_dialog.setWindowFlags(Qt.WindowStaysOnTopHint)
+
+        pip_layout = QVBoxLayout()
+
+        self.pip_label = QLabel('Picture-in-Picture Window')
+        pip_layout.addWidget(self.pip_label)
+
+        close_pip_button = QPushButton('Close Picture-in-Picture')
+        close_pip_button.clicked.connect(self.pip_dialog.close)
+        pip_layout.addWidget(close_pip_button)
+
+        self.pip_dialog.setLayout(pip_layout)
+        self.pip_dialog.show()
+        
+    def pause_resume_video(self):
+        if self.pause_button.text() == 'Pause':
+            self.pause_button.setText('Resume')
+        else:
+            self.pause_button.setText('Pause')
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
