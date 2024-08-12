@@ -269,57 +269,6 @@ class ToolbarExample(QMainWindow):
     def add_website(self):
         pass
 
-# Picture In Picture mode
-class VideoPlayerExample(QMainWindow):
-    def __init__(self):
-        super().__init__()
-
-        self.setWindowTitle('Video Player')
-
-        main_layout = QVBoxLayout()
-
-        self.main_label = QLabel('Main Video Player')
-        main_layout.addWidget(self.main_label)
-
-        self.active_video_playing = False
-
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.check_video_playing)
-        self.timer.start(1000)  # Check every 1 second
-
-        main_widget = QWidget()
-        main_widget.setLayout(main_layout)
-        self.setCentralWidget(main_widget)
-
-    def check_video_playing(self):
-        self.active_video_playing = not self.active_video_playing
-
-        if self.active_video_playing:
-            self.show_picture_in_picture()
-
-    def show_picture_in_picture(self):
-        self.pip_dialog = QDialog(self)
-        self.pip_dialog.setWindowTitle('Picture-in-Picture View')
-        self.pip_dialog.setWindowFlags(Qt.WindowStaysOnTopHint)
-
-        pip_layout = QVBoxLayout()
-
-        self.pip_label = QLabel('Picture-in-Picture Window')
-        pip_layout.addWidget(self.pip_label)
-
-        close_pip_button = QPushButton('Close Picture-in-Picture')
-        close_pip_button.clicked.connect(self.pip_dialog.close)
-        pip_layout.addWidget(close_pip_button)
-
-        self.pip_dialog.setLayout(pip_layout)
-        self.pip_dialog.show()
-        
-    def pause_resume_video(self):
-        if self.pause_button.text() == 'Pause':
-            self.pause_button.setText('Resume')
-        else:
-            self.pause_button.setText('Pause')
-
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     browser = Browser()
